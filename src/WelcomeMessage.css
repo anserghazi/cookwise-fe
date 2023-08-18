@@ -1,0 +1,77 @@
+.cookwise-header {
+    text-align: center;
+    color: white;
+    font-family: 'Fredericka the Great';
+    font-size: 3em;
+    font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-style: none;
+}
+
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-family: 'Noto Serif Georgian';
+    font-size: 0.8em;
+    letter-spacing: 0.04rem;
+    width: 100em;
+    align-items: center;
+    font-weight: 200;
+}
+
+.welcome-p {
+    border-spacing: 12px;
+    border-radius: 10px;
+    display: flex;
+    color: #FAF9F6;
+    background-color: #383E4C;
+    line-height: 1.4;
+    margin: 5px 0px 5px 0px;
+    padding: 15px 15px 15px 15px;
+}
+
+.row-examples > div {
+    border-radius: 10px;
+    display: flex;
+    color: #FAF9F6;
+    background-color: #383E4C;
+    line-height: 1.4;
+    margin: 5px 0px 5px 0px;
+    padding: 12px 12px 12px 12px;
+}
+
+.welcome-message {
+    width: 37em;
+    text-align: left;
+}
+
+.row-examples {
+    display: flex;
+    flex-direction: column;
+}
+
+.transcriptionModeSwitch {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+@media only screen and (max-width: 1100px) {
+    .welcome-message {
+        width: 25em;
+        text-align: left;
+    }
+}
+
+@media only screen and (max-width: 860px) {
+    .welcome-message {
+        width: 20em;
+        text-align: left;
+    }
+
+    .welcome-container {
+        font-size: 0.7em;
+    }
+}

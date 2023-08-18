@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  width: 100%;
+  overflow: hidden;
 }
 
 .App-logo {
@@ -22,11 +24,27 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  width: calc(100% - 260px);
+  right: 0;
+  position: absolute;
+  transition-duration: 80ms;
+}
+
+.menu-open {
+  width: 75vw;
+}
+
+.fabIcon {
+  font-family: "Fredericka the Great";
+  font-size: 3.5em; 
+  line-height: -5px;
 }
 
 .App-link {
   color: #61dafb;
 }
+
+
 
 @keyframes App-logo-spin {
   from {

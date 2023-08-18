@@ -1,0 +1,96 @@
+.recipe {
+    position: relative;
+    width: 230px;
+    border-style: none;
+    margin: 0px 0px 0px 10px;
+    padding: 4px 0px 5px 12px;
+    background-color: #1B1F23;
+    color: white;
+    border-width: 1px;
+    border-radius: 5px;
+    font-family: 'Noto Serif Georgian';
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.sidebarRecipe {
+    margin-left: -4px;
+}
+
+/* .recipeFade {
+    position: absolute;
+    top: 0; 
+    right: 0;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, transparent 90%, rgba(27, 31, 35, 1) 98%);
+}
+
+.recipeFade:hover {
+    background-image: linear-gradient(to right, transparent 90%, rgba(40, 44, 52, 1) 96%);
+    
+} */
+
+.clickedRecipe {
+    width: 230px;
+    border-style: none;
+    margin: 0px 0px 0px 10px;
+    padding: 4px 0px 5px 12px;
+    color: white;
+    border-width: 1px;
+    border-radius: 5px;
+    font-family: 'Noto Serif Georgian';
+    font-size: 14px;
+    font-weight: 300;
+    background-color: #3a3f4a;
+}
+
+.recipe:hover {
+    background-color: #282c34;
+}
+
+
+.dialog > * {
+    font-family: 'Noto Serif Georgian';
+    margin-left: 10px;
+}
+
+.recipeText {
+    margin-top: 20px;
+    color: white;
+    font-family: 'Noto Serif Georgian';
+    height: 100%;
+    border-style: none;
+    resize: none;
+    line-height: 1.9;
+    white-space: pre-wrap;
+}
+
+a {
+    color: white;
+    width: fit-content;
+}
+
+p {
+    margin: 3px 0px 3px 0px;
+    letter-spacing: -0.001rem;
+}
+
+.recipeHeader {
+    font-size: 35px;
+    font-family: 'Noto Serif Georgian';
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    margin-bottom: 10px;
+    letter-spacing: -0.1rem;
+    display: inline;
+    line-height: 1.1;
+    
+}
+
+
+
+
+

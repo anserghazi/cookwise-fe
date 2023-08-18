@@ -1,0 +1,92 @@
+.sidebar {
+    background-color: #1B1F23;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    min-width: 260px;
+    align-items: center;
+    text-align: left;
+    padding: 0px 0px 0px 0px;
+}
+
+.sidebar > p {
+    color: white;
+    font-family: 'Noto Serif Georgian';
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.newChat {
+    padding: 10px 0px 10px 8px;
+    margin: 10px 10px 10px 60px;
+    background-color: #1B1F23;
+    border-style: solid;
+    border-width: 1px;
+    border-color: aqua;
+    border-radius: 5px;
+    width: 190px;
+    color: white;
+    font-family: 'Noto Serif Georgian';
+    font-size: 14px;
+    font-weight: 300;
+}
+
+
+.newChat:hover {
+    background-color: #2d3238;
+}
+
+dialog {
+    z-index: 10;
+    margin-top: 10px;
+    background: green;
+    border: none;
+    border-radius: 1rem;
+}
+
+.recipeList {
+    height: 80vh;
+    overflow-y: auto;
+}
+
+.userLogin {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.authenticationButton {
+    padding: 10px 0px 10px 0px;
+    margin: 10px 0px 10px 0px;
+    background-color: #1B1F23;
+    border-style: solid;
+    border-width: 1px;
+    border-color: aqua;
+    border-radius: 5px;
+    width: 100px;
+    color: white;
+    font-family: 'Noto Serif Georgian';
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.authenticationButton:hover {
+    background-color: #2d3238;
+}
+
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #8d929e; 
+}
+
+
+
+  
+
+

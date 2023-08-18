@@ -1,0 +1,168 @@
+.html {
+    position: relative;
+}
+
+.EntryForm {
+    width: 65%;
+    min-width: 600px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    border-style: none;
+    border-radius: 10px;
+    background-color: #383E4C;
+    box-shadow: 0 0 10px #1f212d;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 5vh 0px; 
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+
+}
+
+/* .EntryForm:focus-within {
+    outline: 1px solid #677084;
+} */
+
+.UserInput {
+    display: flex;
+    /* flex-grow: 2; */
+    color: #FAF9F6;
+    background-color: #383E4C;
+    border-style: none;
+    border-radius: 0px;
+    width: 100%;
+    line-height: 1.4;
+    margin: 12px 0px 12px 12px;
+    padding: 0px 40px 0px 0px;
+    font-family: 'Noto Serif Georgian';
+    letter-spacing: 0.04rem;
+    font-weight: 200;
+    resize: none;
+    height: 20px;
+    max-height: 175px;
+    overflow-y: scroll;
+    z-index: 1;
+}
+
+textarea::-webkit-scrollbar {
+    width: 5px;
+}
+textarea::-webkit-scrollbar-track { 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #848b9d; 
+}
+
+.UserInput:focus {
+    outline: none;
+}
+
+.Button {
+    display: flex;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-style: solid;
+    border-width: 0px;
+    border-radius: 30px;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    margin: 10px 8px 7.5px 0px;
+    font-family: 'Noto Serif Georgian';
+    font-weight: 100;
+    z-index: 2;
+}
+
+#VisibleButton:active,
+#VisibleButton.active {
+    border-style: double;
+    border-width: 15px;
+    border-color: #267426;
+    transition: .1s;
+}
+
+#VisibleButton:hover{
+    background-color: #0ea10e;
+    transition: .165s;
+}
+
+#VisibleButton {
+    background-color: #267426;
+    color: #91fa91;
+    transition: 0.3s;
+}
+
+#HiddenButton {
+    background-color: #383E4C;
+    transition: 0.5s;
+}
+
+#HiddenButton:focus {
+    outline: none;
+}
+
+.CircularProgress {
+    color: "success";
+    min-width: 30px;
+    max-width: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    position: absolute;
+}
+
+#inputInvalidAlert {
+    font-size: 11px;
+    line-height: 1.9;
+    padding-left: 20px;
+    width: 96%;
+}
+
+/* 
+#StopButton {
+    background-color: #610000;
+    color: #fcaeae;
+} */
+
+
+@media only screen and (max-width: 1100px) {
+    .EntryForm {
+        width: 60%;
+        min-width: 500px;
+    }
+
+    #inputInvalidAlert {
+        font-size: 11px;
+        padding-left: 20px;
+        width: 94%;
+    }
+}
+
+@media only screen and (max-width: 860px) {
+    .EntryForm {
+        width: 92%;
+        min-width: 0;
+    }
+
+    #inputInvalidAlert {
+        width: 96%;
+        font-size: 0.38em;
+        line-height: 2.5;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    #inputInvalidAlert {
+        width: 93%;
+        line-height: 1.4;
+    }
+}
+
