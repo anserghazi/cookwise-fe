@@ -26,7 +26,7 @@
     border-radius: 10px;
     display: flex;
     color: #FAF9F6;
-    background-color: #383E4C;
+    background-color: #272A31;
     line-height: 1.4;
     margin: 5px 0px 5px 0px;
     padding: 15px 15px 15px 15px;
@@ -36,7 +36,7 @@
     border-radius: 10px;
     display: flex;
     color: #FAF9F6;
-    background-color: #383E4C;
+    background-color: #272A31;
     line-height: 1.4;
     margin: 5px 0px 5px 0px;
     padding: 12px 12px 12px 12px;
@@ -58,7 +58,7 @@
     margin-top: 12px;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1150px) {
     .welcome-message {
         width: 25em;
         text-align: left;
@@ -67,11 +67,28 @@
 
 @media only screen and (max-width: 860px) {
     .welcome-message {
-        width: 20em;
+        width: 85%;
         text-align: left;
     }
 
     .welcome-container {
         font-size: 0.7em;
     }
+}
+
+
+@media only screen and (max-width: 650px) {
+    .cookwise-header {
+        font-size: 60px;
+    }
+
+    .welcome-message {
+        margin-top: 35%;
+        width: 86%;
+    }
+
+    .welcome-p {
+        margin-top: 1%;
+    }
+
 }

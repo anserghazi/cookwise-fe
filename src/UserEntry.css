@@ -10,10 +10,10 @@
     flex-direction: row;
     border-style: none;
     border-radius: 10px;
-    background-color: #383E4C;
+    background-color: #272A31;
     box-shadow: 0 0 10px #1f212d;
     padding: 0px 0px 0px 0px;
-    margin: 0px 0px 5vh 0px; 
+    margin: 0px 0px 3vh 0px; 
     overflow: hidden;
     position: absolute;
     bottom: 0;
@@ -28,11 +28,11 @@
     display: flex;
     /* flex-grow: 2; */
     color: #FAF9F6;
-    background-color: #383E4C;
+    background-color: #272A31;
     border-style: none;
     border-radius: 0px;
     width: 100%;
-    line-height: 1.4;
+    line-height: 1.42;
     margin: 12px 0px 12px 12px;
     padding: 0px 40px 0px 0px;
     font-family: 'Noto Serif Georgian';
@@ -43,6 +43,11 @@
     max-height: 175px;
     overflow-y: scroll;
     z-index: 1;
+    font-size: 13px;
+}
+
+.UserInput::placeholder {
+    color: #b9babc;
 }
 
 textarea::-webkit-scrollbar {
@@ -102,7 +107,7 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 #HiddenButton {
-    background-color: #383E4C;
+    background-color: #272A31;
     transition: 0.5s;
 }
 
@@ -119,7 +124,7 @@ textarea::-webkit-scrollbar-thumb {
     position: absolute;
 }
 
-#inputInvalidAlert {
+.errorAlert {
     font-size: 11px;
     line-height: 1.9;
     padding-left: 20px;
@@ -133,16 +138,145 @@ textarea::-webkit-scrollbar-thumb {
 } */
 
 
+.errorCollapse {
+    z-index: 4; 
+    width: "67.5%"; 
+    min-width: '620px'; 
+    position: 'absolute'; 
+    bottom: 10;
+    left: 17.6%;
+    display: 'flex';
+    align-items: 'center';
+}
+
+.MuiAlert-message {
+    display: flex;
+    width: 90%;
+    overflow: hidden;
+    /* background-color: dodgerblue; */
+}
+
+.errorMessage {
+    width: 100%;
+    overflow: visible;
+    position: relative;
+    text-align: 'center';
+    line-height: 1;
+    height: 'auto';
+    margin: 5px 0px 0px 10%;
+    padding: 0px 0px 0px 0px;
+    display: 'flex';
+    overflow: 'visible';
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Noto Serif Georgian';
+    /* border-style: solid; */
+    /* background-color: blue; */
+    overflow-x: 'hidden'
+}
+
+.errorMessageWithMenu {
+    width: 100%;
+    overflow: visible;
+    position: relative;
+    text-align: 'center';
+    line-height: 1;
+    height: 'auto';
+    margin: 5px 0px 0px 15%;
+    padding: 3px 0px 3px 0px;
+    display: 'flex';
+    overflow: 'visible';
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'Noto Serif Georgian';
+    /* border-style: solid; */
+    /* background-color: blue; */
+    overflow-x: 'hidden'
+}
+
+.errorImageWithMenu {
+    position: 'absolute';
+    top: -60%;
+    left: 1%; 
+    height: 120px;
+    margin-left: 367;
+}
+
+.errorImage {
+    position: absolute; 
+    top: -105%; 
+    left: 1%; 
+    height: 120px; 
+    margin-left: 367;
+}
+
+.errorImageWithMenu {
+    position: absolute; 
+    top: -95%; 
+    left: 1%; 
+    height: 120px; 
+    margin-left: 367;
+}
+
+@media only screen and (max-width: 1230px) {
+   
+    .errorMessageWithMenu {
+        font-size: 11px;
+        margin-left: 15%;
+    }
+}
+    
+
+@media only screen and (max-width: 1200px) {
+    .errorMessage {
+        font-size: 13px;
+        margin-left: 11%;
+    }
+
+    .errorMessageWithMenu {
+        font-size: 10px;
+        margin-left: 14%;
+    }
+}
+
+
 @media only screen and (max-width: 1100px) {
     .EntryForm {
         width: 60%;
         min-width: 500px;
     }
 
-    #inputInvalidAlert {
+    .errorImage {
+        top: -60%;
+    }
+
+    .errorImageWithMenu {
+        top: -58%;
+    }
+
+    .errorAlert {
         font-size: 11px;
         padding-left: 20px;
         width: 94%;
+    }
+
+    .errorMessage {
+        margin-left: 13%;
+        font-size: 15px;
+    }
+
+    .errorMessageWithMenu {
+        width: 60%;
+        margin-left: 30%;
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .errorMessageWithMenu {
+        width: 60%;
+        margin-left: 30%;
+        font-size: 12px;
     }
 }
 
@@ -152,17 +286,116 @@ textarea::-webkit-scrollbar-thumb {
         min-width: 0;
     }
 
-    #inputInvalidAlert {
+    .errorAlert {
         width: 96%;
         font-size: 0.38em;
         line-height: 2.5;
     }
+    
+    .errorMessage {
+        margin-left: 13%;
+        font-size: 14px;
+    }
+
+    .errorImage {
+        top: -108%;
+    }
+}
+
+@media only screen and (max-width: 790px) {
+    .errorMessageWithMenu {
+        margin-left: 32%;
+        font-size: 10px;
+    }
+
+}
+
+@media only screen and (max-width: 750px) {
+    .errorMessage {
+        margin-left: 15%;
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .errorMessageWithMenu {
+        margin-left: 35%;
+        font-size: 8.5px;
+    }
+
+   
+}
+
+@media only screen and (max-width: 670px) {
+    .errorMessage {
+        margin-left: 17%;
+        font-size: 11px;
+    }
 }
 
 @media only screen and (max-width: 650px) {
-    #inputInvalidAlert {
+    /* .errorAlert {
         width: 93%;
         line-height: 1.4;
+    } */
+
+    .errorMessage {
+        font-size: 15px;
+        margin-left: 16%;
+    }
+
+    .errorImage {
+        top: -60%;
+    }
+}
+
+@media only screen and (max-width: 580px) {
+    .errorMessage {
+        margin-left: 20%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .errorMessage {
+        margin-left: 26%;
+        font-size: 12px;
+    }
+    .errorImage {
+        top: -78%;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .errorMessage {
+        margin-left: 32%;
+        font-size: 10px;
+    }
+    .errorImage {
+        top: -90%;
+        left: 0%;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    .errorMessage {
+        width: 70%;
+        font-size: 10px;
+    }
+
+    .errorImage {
+        top: -90%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .errorMessage {
+        width: 90%;
+        font-size: 11px;
+        margin-left: 10px;
+    }
+
+    .errorImage {
+        display: none;
     }
 }
 

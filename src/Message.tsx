@@ -22,6 +22,7 @@ export default function Message({request, response}: {request: any, response: an
             <div className="MessageRequest" key={request.key} id={request.key}>
                 <Avatar className="Avatar" key={"avatar" + request.key} variant="square" sx={{ backgroundColor: "#005757", maxHeight: 25, maxWidth: 25, minHeight: 25, minWidth: 25, borderRadius: 1 }}>
                     <SupportAgentTwoToneIcon key={"icon" + request.key} sx={{ fontSize: 23, color: '#60FF6A' }} />
+                    {/* <p style={{fontFamily: 'Neucha', fontWeight: '900', fontSize: '25px', marginTop: '5px', color: '#60FF6A'}}>A</p> */}
                 </Avatar>
                 <p className="MessageParagraph" id={"p" + request.key}>{request.text}</p>
             </div>

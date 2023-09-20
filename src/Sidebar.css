@@ -1,13 +1,68 @@
 .sidebar {
-    background-color: #1B1F23;
+    background-color: #111418;
     position: absolute;
     left: 0;
     top: 0;
     height: 100vh;
-    min-width: 260px;
+    min-width: 290px;
     align-items: center;
     text-align: left;
     padding: 0px 0px 0px 0px;
+    /* border-right: solid; */
+    border-width: 1px;
+    /* border-color: rgb(0, 68, 68); */
+    /* border-color: #060b0f; */
+}
+
+#username {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-54.75%);
+    bottom: 0;
+    margin-bottom: 4px;
+    margin-left: 12px;
+    margin-right: 0px;
+    width: 90%;
+    font-size: 9px;
+    border-width: 0.1px;
+    border-color: #111418;
+    border-style: solid;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+#username:hover {
+    /* text-decoration: underline; */
+    /* border-color: white; */
+    background-color: #2d3238;
+    /* left: 0; */
+    
+    
+}
+
+#guest {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    margin-bottom: 4px;
+    font-size: 9px;
+}
+
+.welcomeSidebarDiv {
+    width: 240px;
+    margin: 10px 0px 0px 35px;
+}
+
+#welcomeSidebar {
+    color: white;
+    font-family: 'Noto Serif Georgian';
+    font-size: 15px;
+    display: flex;
+    width: 100%;
+    font-weight: 200;
 }
 
 .sidebar > p {
@@ -19,17 +74,18 @@
 
 .newChat {
     padding: 10px 0px 10px 8px;
-    margin: 10px 10px 10px 60px;
-    background-color: #1B1F23;
+    margin: 10px 10px 10px 10px;
+    background-color: #111418;
     border-style: solid;
     border-width: 1px;
-    border-color: aqua;
+    border-color: rgb(0, 68, 68);
     border-radius: 5px;
-    width: 190px;
+    width: 218px;
     color: white;
     font-family: 'Noto Serif Georgian';
     font-size: 14px;
     font-weight: 300;
+    line-height: 1.4;
 }
 
 
@@ -57,17 +113,21 @@ dialog {
 
 .authenticationButton {
     padding: 10px 0px 10px 0px;
-    margin: 10px 0px 10px 0px;
-    background-color: #1B1F23;
+    margin: 10px 0px 25px 0px;
+    background-color: #111418;
     border-style: solid;
     border-width: 1px;
-    border-color: aqua;
+    border-color: rgb(0, 68, 68);
     border-radius: 5px;
-    width: 100px;
+    width: 90%;
     color: white;
     font-family: 'Noto Serif Georgian';
     font-size: 14px;
+    line-height: 1.5;
     font-weight: 300;
+    position: absolute;
+    bottom: 0;
+    transition: 0.1s;
 }
 
 .authenticationButton:hover {
@@ -82,11 +142,88 @@ dialog {
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: #8d929e; 
+    background: #54575f; 
+}
+
+@media only screen and (max-width: 649px) {
+    .sidebar {
+        width: 100%;
+    }
+
+    .newChat {
+        width: 78%;
+        /* max-width: 200px; */
+        height: 8%;
+        max-height: 55px;
+        min-height: 55px;
+        margin-left: 17%;
+        margin-top: 15px;
+        transition: 0.1s;
+    }
+
+    .authenticationButton {
+        padding: 10px 0px 10px 0px;
+        margin: 10px 0px 25px 0px;
+        width: 90%;
+        height: 8%;
+        max-height: 65px;
+        min-height: 55px;
+    }
+
+    #username {
+        margin-left: 0px;
+        width: auto;
+    }
+
+    #welcomeSidebar {
+        font-size: 17px;
+        width: 100%;
+    }
+    .welcomeSidebarDiv {
+        width: 80%;
+    }
+
+    .recipeList {
+        height: 80vh;
+        overflow-y: auto;
+        margin-left: 2%;
+        margin-top: 2%;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .newChat {
+        width: 74%;
+        /* max-width: 200px; */
+        height: 8%;
+        min-height: 55px;
+        margin-left: 20.9%;
+        margin-top: 15px;
+    }
+
+    .authenticationButton {
+        padding: 10px 0px 10px 0px;
+        margin: 10px 0px 25px 0px;
+        width: 90%;
+        height: 8%;
+        transition: 0.6s;
+    }
 }
 
 
+@media only screen and (max-width: 420px) {
+    .newChat {
+        width: 70%;
+        margin-left: 24.9%;
+    }
+}
 
+@media only screen and (max-width: 360px) {
+    .newChat {
+        width: 65%;
+        margin-left: 29.9%;
+    }
+}
   
 
 

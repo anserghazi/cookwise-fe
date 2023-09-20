@@ -1,21 +1,64 @@
 .recipe {
     position: relative;
-    width: 230px;
+    width: 268px;
     border-style: none;
     margin: 0px 0px 0px 10px;
-    padding: 4px 0px 5px 12px;
-    background-color: #1B1F23;
+    padding: 8px 0px 9px 12px;
+    /* background-color: #191d23; */
     color: white;
     border-width: 1px;
     border-radius: 5px;
     font-family: 'Noto Serif Georgian';
     font-weight: 300;
     font-size: 14px;
+    /* height: 100%; */
+}
+
+.recipeList {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 3px;
+    margin-right: 4px;
+    
+    /* height: 85%; */
+}
+
+.sidebarRecipe.removing {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 .sidebarRecipe {
+    position: relative;
+    color: white;
+    /* transition: all 0.3s ease-out; */
     margin-left: -4px;
+
+    /* background-color: white; */
+	/* -webkit-text-fill-color: transparent; */
+
+    /* background: linear-gradient(90deg, white, white 80%, transparent 100%);  Most of the text is white, then it fades to transparent */
+  
+    /* -webkit-background-clip: text;  Make sure to add vendor prefixes */
+    /* background-clip: text;
+    color: transparent;  This makes the text take the gradient as its color */
+  
 }
+
+.fadeOverlay {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 20%;  /* controls the width of the fade effect */
+    background: linear-gradient(90deg, transparent 0%, #111418 70%);
+    pointer-events: none;  /* ensures that the overlay doesn't interfere with any interactions */
+}
+
+
 
 /* .recipeFade {
     position: absolute;
@@ -33,10 +76,10 @@
 } */
 
 .clickedRecipe {
-    width: 230px;
+    width: 268px;
     border-style: none;
     margin: 0px 0px 0px 10px;
-    padding: 4px 0px 5px 12px;
+    padding: 8px 0px 9px 12px;
     color: white;
     border-width: 1px;
     border-radius: 5px;
@@ -50,21 +93,132 @@
     background-color: #282c34;
 }
 
+.recipe:hover .fadeOverlay {
+    background: linear-gradient(90deg, transparent 0%, #282c34 60%);
+}
+
+.clickedFadeOverlay {
+    background: linear-gradient(90deg, transparent 0%, #3a3f4a 40%);
+}
+
 
 .dialog > * {
     font-family: 'Noto Serif Georgian';
     margin-left: 10px;
 }
 
+.recipeTextContainer {
+    display: flex;
+    height: 76vh;
+    flex-flow: row nowrap;
+    width: 100%;
+    margin: -10px 0px 0px 0px;
+    padding-bottom: 20px;
+}
+
 .recipeText {
+    width: 67%;
+    max-height: 78%;
+    flex-flow: column nowrap;
     margin-top: 20px;
+    padding: 0px 15px 0px 5px;
     color: white;
     font-family: 'Noto Serif Georgian';
-    height: 100%;
+    font-size: 13px;
+    
     border-style: none;
     resize: none;
-    line-height: 1.9;
+    line-height: 1.85;
     white-space: pre-wrap;
+    display: flex;
+    flex-flow: column nowrap;
+
+    /* height: 500px; */
+    
+    /* background-color: #2d3238; */
+    /* height: 100%; */
+    /* margin-right: 20px; */
+    
+    /* margin-right: 15px; */
+}
+
+.recipeContentDiv {
+    display: flex;
+    flex-direction: column;
+    max-height: 78vh;
+}
+
+
+#ingredients {
+    /* height: 80%; */
+    /* width: 75vw; */
+    width: 34%;
+    margin-right: 10px;
+    /* border-right: solid; */
+    border-width: 0.1px;
+    overflow-y: scroll;
+    padding-bottom: 10px;
+    max-height: 74vh;
+}
+
+.recipeText::-webkit-scrollbar {
+    width: 1px;
+    
+}
+.recipeText::-webkit-scrollbar-track { 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #4d5464;
+    margin: -15px 0px 5px 0px;
+}
+
+.recipeText::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: white;
+}
+
+
+#instructions {
+    display: flex;
+    flex: 0 0 auto;
+    overflow-y: auto;
+    max-height: 73vh;
+    margin-right: 3px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+}
+
+.recipeSubheader {
+    line-height: 1;
+    display: flex;
+    font-size: 15px;
+    text-decoration: underline;
+}
+
+.recipeSubheaderContainer {
+    display: flex;
+    flex-direction: row;
+    margin: 0px 0px -7px -10px;
+    padding: 5px 0px 0px 0px;
+}
+
+.recipeHeaderDiv {
+    padding: 10px 0px 10px 15px;
+    border-bottom: solid;
+    border-width: 0.05px;
+    border-color: white;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    height: 15%;
+    width: 100%;
+    background-color: #111418;
+    /* margin-left: -20px; */
+}
+
+.recipeContentDiv {
+    margin: 0px 0px 0px 10px;
 }
 
 a {
@@ -78,17 +232,121 @@ p {
 }
 
 .recipeHeader {
-    font-size: 35px;
+    /* background-color: red;    */
+    flex-direction: row;
     font-family: 'Noto Serif Georgian';
-    font-weight: 700;
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
-    margin-bottom: 10px;
-    letter-spacing: -0.1rem;
-    display: inline;
+    font-weight: 300;
+    /* text-decoration: underline;
+    text-decoration-thickness: 0.5px; */
+    margin-top: 0px;
+    letter-spacing: -0.06rem;
+    display: flex;
     line-height: 1.1;
-    
+    /* background-color: #111418; */
 }
+
+.recipeTitle {
+    font-size: 30px;
+
+}
+
+.copyIcon {
+    transform: rotate(-10deg);
+    color: green;
+}
+
+.deleteIcon {
+    color: red;
+}
+
+.closeDialog {
+    height: inherit;
+    overflow-y: hidden;
+    overflow-y: auto;
+    margin: 0px 0px 0px 0px;
+    padding: 25px 15px 15px 18px;
+    background-color: #1B1F23;
+    width: 380px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 5px;
+}
+
+.closeDialog > p {
+    color: white;
+    font-family: 'Noto Serif Georgian';
+    font-size: 16px;
+    width: 60%;
+    /* position: absolute; */
+}
+
+.deleteButton {
+    padding: 10px 8px 10px 8px;
+    margin: 35px 0px 0px 5px;
+    background-color: #a30909;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #a30909;
+    border-radius: 5px;
+    width: 167px;
+    color: white;
+    font-family: 'Noto Serif Georgian';
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+.deleteButton:hover {
+    background-color: #8f0909;
+    border-color: #8f0909;
+}
+
+.deleteButton:active {
+    border-color: rgb(248, 184, 184);
+    border-width: 1px;
+    border-style: solid;
+}
+
+.cancelButton:hover {
+    background-color: #364150;
+}
+
+.cancelButton:active {
+    border-color: white;
+    border-width: 1px;
+}
+
+.cancelButton {
+    padding: 10px 8px 10px 8px;
+    margin: 25px 5px 0px 0px;
+    background-color: #273443;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(0, 68, 68);
+    border-radius: 5px;
+    width: 167px;
+    color: white;
+    font-family: 'Noto Serif Georgian';
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+@media only screen and (max-width: 649px) {
+    .recipe {
+        width: 96%;
+        height: 60px;
+        font-size: 15px;
+        padding-top: 14px;
+        background-color: #171c21;
+        margin-bottom: 5px;
+    }
+
+    .fadeOverlay {
+        background: linear-gradient(90deg, transparent 0%, #171c21 70%);
+    }
+}
+
 
 
 

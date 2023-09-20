@@ -1,13 +1,140 @@
 import React, { useEffect, useRef, useState } from 'react';
 import SendIcon from '@mui/icons-material/Send';
 import CircularProgress from '@mui/material/CircularProgress';
-import './UserEntry.css'
+
 import { Alert, Collapse } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import './UserEntry.css'
+import styled from '@emotion/styled';
+
 const { v4: uuidv4 } = require('uuid');
 
+const CustomStyledCollapseWithMenu = styled(Collapse)(({ theme }) => ({
+    zIndex: 4, 
+    width: "65%",
+    minWidth: '600px',
+    position: 'absolute',
+    bottom: 70, //10
+    left: '17.5%',
+    display: 'flex',
+    alignItems: 'center',
+    '@media (max-width: 1210px)': {
+        left: '15%',
+        // minWidth: '600px',
+        width: '69.2%',
+        // minWidth: '0px',
+    },
+    '@media (max-width: 1100px)': {
+        left: '15%',
+        // minWidth: '500px',
+        width: '70%',
+        minWidth: '0px',
+    },
+    '@media (max-width: 1000px)': {
+        left: '10%',
+        // minWidth: '500px',
+        width: '82%',
+        minWidth: '0px',
+    },
+    '@media (max-width: 860px)': {
+        left: '3.9%',
+        width: '92%'
+    },
+    '@media (max-width: 649px)': {
+        display: 'none'
+    }
+}))
+
+const CustomStyledAlertWithMenu = styled(Alert)(({ theme }) => ({
+    // "&&": {
+    //     mb: 2,
+    //     display: 'flex',
+    //     height: 'auto', 
+    //     flexDirection: 'column', 
+    //     justifyContent: 'center', 
+    //     alignContent: 'center', 
+    //     alignItems: 'center',
+    // },
+    marginBottom: 2,
+    display: 'flex',
+    height: 'auto', 
+    flexDirection: 'column', 
+    justifyContent: 'center', 
+    alignContent: 'center', 
+    alignItems: 'center',
+    overflowX: 'hidden',
+}))
+
+const CustomStyledIconButtonWithMenu: any = styled(IconButton)(({ theme }) => ({
+    position: 'absolute', 
+    top: 3, 
+    right: '.5%',
+    '@media (max-width: 1100px)': {
+        right: '.5%'
+    }
+}))
+
+
+const CustomStyledCollapse = styled(Collapse)(({ theme }) => ({
+    zIndex: 4, 
+    width: "64.9%",
+    minWidth: '620px',
+    position: 'absolute',
+    bottom: 65, //10
+    left: '17.6%',
+    display: 'flex',
+    alignItems: 'center',
+    '@media (max-width: 1100px)': {
+        left: '20%',
+        // minWidth: '500px',
+        width: '60%',
+        minWidth: '0px',
+    },
+    '@media (max-width: 860px)': {
+        left: '3.9%',
+        width: '92%'
+    },
+    '@media (max-width: 650px)': {
+        left: '3.9%',
+        width: '92%'
+    }
+}))
+
+const CustomStyledAlert = styled(Alert)(({ theme }) => ({
+    // "&&": {
+    //     mb: 2,
+    //     display: 'flex',
+    //     height: 'auto', 
+    //     flexDirection: 'column', 
+    //     justifyContent: 'center', 
+    //     alignContent: 'center', 
+    //     alignItems: 'center',
+    // },
+    marginBottom: 2,
+    display: 'flex',
+    height: 'auto', 
+    flexDirection: 'column', 
+    justifyContent: 'center', 
+    alignContent: 'center', 
+    alignItems: 'center',
+    overflowX: 'hidden',
+}))
+
+const CustomStyledIconButton: any = styled(IconButton)(({ theme }) => ({
+    position: 'absolute', 
+    top: 3, 
+    right: '.5%',
+    // '@media (max-width: 1100px)': {
+    //     right: '0.6%'
+    // },
+    // '@media (max-width: 860px)': {
+    //     right: '0.5%'
+    // }
+}))
+
 interface IRecipe {
+    id: string,
     key: string,
     url: string,
     video_title: string,
@@ -24,13 +151,58 @@ interface recipeMetadata {
     channelUrl: string
 }
 
-export default function UserEntry({inputValue, setInputValue, chatMessages, setChatMessages, recipes, setRecipes, chatSessions, setChatSessions, currentSessionId, setCurrentSessionId, socket}: {inputValue: string, setInputValue: React.Dispatch<React.SetStateAction<string>>, chatMessages: any, setChatMessages: any, recipes: Array<IRecipe>, setRecipes: React.Dispatch<React.SetStateAction<Array<IRecipe>>>, chatSessions: Array<string>, setChatSessions: React.Dispatch<React.SetStateAction<Array<string>>>, currentSessionId: string, setCurrentSessionId: React.Dispatch<React.SetStateAction<string>>, socket: WebSocket | null}) {
+export default function UserEntry({menu, inputValue, setInputValue, chatMessages, setChatMessages, recipes, setRecipes, chatSessions, setChatSessions, currentSessionId, setCurrentSessionId, socket}: {menu: any, inputValue: string, setInputValue: React.Dispatch<React.SetStateAction<string>>, chatMessages: any, setChatMessages: any, recipes: Array<IRecipe>, setRecipes: React.Dispatch<React.SetStateAction<Array<IRecipe>>>, chatSessions: Array<string>, setChatSessions: React.Dispatch<React.SetStateAction<Array<string>>>, currentSessionId: string, setCurrentSessionId: React.Dispatch<React.SetStateAction<string>>, socket: WebSocket | null}) {
     const delay = (ms: number | undefined) => new Promise(res => setTimeout(res, ms));
     const [isLoading, setIsLoading] = useState(false)
     const [open, setOpen] = useState(false)
     const [newRecipe, setNewRecipe] = useState(false)
     const [errorMessage, setErrorMessage] = useState("Please enter a valid Youtube URL (ex. https://www.youtube.com/watch?v=...)")
     const [sessionId, setSessionId] = useState("");
+    const [count, setCount] = useState(0);
+
+    function pullRecipesFromLocalStorage() {
+        const recipesString = localStorage.getItem('recipes');
+        let localRecipes;
+        if (recipesString) {
+            localRecipes =  JSON.parse(recipesString);
+            console.log(localRecipes)
+            setRecipes(localRecipes)
+        }
+    }
+
+    // useEffect(() => {
+    //     localStorage.setItem("recipes", JSON.stringify(recipes));
+    // }, [recipes])
+
+    useEffect(() => {
+        pullRecipesFromLocalStorage();
+    }, []);
+
+
+    useEffect(() => {
+        const currentCount = localStorage.getItem('count');
+        const lastResetTime: any = localStorage.getItem('lastResetTime');
+        const currentTime = new Date().getTime();
+        
+        if (lastResetTime && (currentTime - lastResetTime) > 1000 * 60 * 60 * 24) {
+            // More than 24 hours have passed since the last reset
+            setCount(0);
+            localStorage.setItem('count', '0');
+            localStorage.setItem('lastResetTime', currentTime.toString());
+        } else if (currentCount) {
+            setCount(parseInt(currentCount, 10));
+            // window.alert("You've exceeded the request limit. Sign in or wait 24 hours to send more messages.")
+        }
+
+
+        // const currentCount = localStorage.getItem('count');
+        // if (currentCount) {
+        //     setCount(parseInt(currentCount, 10));
+        // } else {
+        //     // If the counter doesn't exist, initialize it to 0 in localStorage
+        //     localStorage.setItem('count', '0');
+        // }
+    }, []);
 
     useEffect(() => {
         saveRecipe();
@@ -53,7 +225,6 @@ export default function UserEntry({inputValue, setInputValue, chatMessages, setC
 
     useEffect(() => {
         if(chatMessages.length > 0) {
-            console.log('isloading updated')
             let latestMessageId = chatMessages[chatMessages.length - 1].response.key;
             let latestMessage = document.getElementById(`p${latestMessageId}`)
             if (latestMessage) {
@@ -95,7 +266,6 @@ export default function UserEntry({inputValue, setInputValue, chatMessages, setC
             for (let messagePair of chatMessages) {
                 potentialRecipes.push(messagePair.response.text)
             }
-            console.log(potentialRecipes)
 
             let recipe: string = findLatestStringWithKeywords(potentialRecipes)
 
@@ -141,22 +311,53 @@ export default function UserEntry({inputValue, setInputValue, chatMessages, setC
             }
             else {
                 if (!(recipe === "no recipes detected")) {
+                    // shouldnt this be recipes.at(0) now? and cant i add a third parameter to splice, the recipe?
+                    
+                    // potential edit START
+                    // let recipesString = localStorage.getItem('recipes');
+                    // let localRecipes;
+                    // if (recipesString) {
+                    //     localRecipes =  JSON.parse(recipesString);
+                    // }
+                    // let currentRecipe = localRecipes.at(0)
+                    // if (currentRecipe) {
+                    //     currentRecipe.recipe = recipe
+                    //     let newlineIndex = recipe.indexOf('\n');
+                    //     let recipeIndex = recipe.indexOf(':')
+                    //     let recipeName = recipe.substring(recipeIndex + 1, newlineIndex);
+                    //     currentRecipe.recipe_name = recipeName
+                    //     setRecipes((prevRecipes: Array<any>) => [...prevRecipes.splice(0, 1, currentRecipe)])
+                        
+                    // }
+                    // this didnt fix shit
+                    // potential edit END (comment between above, uncomment below)
+
                     let currentRecipe = recipes.at(-1)
+                    console.log(currentRecipe)
                     if (currentRecipe) {
                         currentRecipe.recipe = recipe
                         let newlineIndex = recipe.indexOf('\n');
                         let recipeIndex = recipe.indexOf(':')
                         let recipeName = recipe.substring(recipeIndex + 1, newlineIndex);
                         currentRecipe.recipe_name = recipeName
-                        setRecipes((prevRecipes: Array<any>) => [...prevRecipes.slice(0, -1), currentRecipe])
+                        setRecipes((prevRecipes: Array<any>) => [currentRecipe, ...prevRecipes.splice(0, 1)])
+                        
                     }
+
+                    // uncomment above
                 }
             }
         }
     }
 
     async function getVideoMetadata(): Promise<any>  {
-        let currentRecipe = recipes[recipes.length - 1]  //update to use recipes.at(-1)
+        // let recipesString = localStorage.getItem('recipes');
+        // let localRecipes;
+        // if (recipesString) {
+        //     localRecipes =  JSON.parse(recipesString);
+        // }
+        // let currentRecipe = localRecipes.at(0)
+        let currentRecipe = recipes[0]  //update to use recipes.at(-1)
         let recipe: string;
         let recipeName: string
         if (chatMessages.length > 0) {
@@ -190,7 +391,9 @@ export default function UserEntry({inputValue, setInputValue, chatMessages, setC
                     currentRecipe.channel_url = recipeMetadata.channelUrl;
                     currentRecipe.recipe_name = recipeName;
                     currentRecipe.recipe = recipe;
-                    setRecipes(prevMessages => [...prevMessages.slice(0, -1), currentRecipe])
+                    // setRecipes(prevMessages => [...prevMessages.slice(0, -1), currentRecipe])
+                    setRecipes((prevRecipes) => [...prevRecipes])
+                    localStorage.setItem('recipes', JSON.stringify(recipes))
                 }  
             }
             setIsLoading(false)
@@ -205,6 +408,15 @@ export default function UserEntry({inputValue, setInputValue, chatMessages, setC
         let userInput = (document.getElementById('UserInput') as HTMLTextAreaElement);
         
         event.preventDefault();
+
+        // const newCount = count + 1;
+        // setCount(newCount);
+        // localStorage.setItem('count', newCount.toString());
+
+        // Set the last reset time if it doesn't exist yet
+        if (!localStorage.getItem('lastResetTime')) {
+            localStorage.setItem('lastResetTime', new Date().getTime().toString());
+        }
 
         // uncomment these lines of code later on, we need to validate input instead of letting bad input & responses clutter the message history w/ chatgpt,
         // ORRR if the input is invalid, omit it and its response from the history submitted with a chatgpt message request
@@ -350,7 +562,6 @@ export default function UserEntry({inputValue, setInputValue, chatMessages, setC
 
             socket.onmessage = (event) => {
                 let receivedData = event.data;
-                console.log(receivedData)
 
                 if (receivedData === "API_RESPONSE_END") {
                     setIsLoading(false)
@@ -386,6 +597,27 @@ export default function UserEntry({inputValue, setInputValue, chatMessages, setC
     }
    
     async function callBackendAPI(newMessage: {request: {key: string, text: string}, response: {key: string, text: string}, key: string}): Promise<void> {
+        let countLimit = localStorage.getItem('count');
+        let currentCount;
+        if (countLimit) {
+            currentCount = parseInt(countLimit, 10);
+        }
+
+        if (currentCount) {
+            if (currentCount > 4) {
+                window.alert("Daily transcription limit reached (5). API Limits will increase in the future. Sorry for the inconvenience, please try again tomorrow!")
+                setChatMessages([])
+                setIsLoading(false)
+                return 
+            }
+            else {
+                currentCount += 1;
+                let countString = String(currentCount)
+                localStorage.setItem('count', countString)
+            }
+        } 
+        
+        
         let isFirstMessageReceived = false;
         
         async function processMessage(receivedData: string, latestMessage: {key: string, request: {key: string, text: string}, response: {key: string, text: string}}) {
@@ -448,7 +680,6 @@ export default function UserEntry({inputValue, setInputValue, chatMessages, setC
                     if (!isFirstMessageReceived) {
                         setSessionId(receivedData);
                         isFirstMessageReceived = true;
-                        console.log(receivedData)
                         return
                     }
 
@@ -465,7 +696,7 @@ export default function UserEntry({inputValue, setInputValue, chatMessages, setC
                         return
                     }
 
-                    console.log('receivedData: ' + receivedData)
+                    
 
                     
                     let latestMessage = newMessage;
@@ -508,6 +739,7 @@ export default function UserEntry({inputValue, setInputValue, chatMessages, setC
                 let recipeExists = recipes.find(recipe => recipe.key === newSessionId);
                 if (!recipeExists) {
                     let blankRecipe = {
+                        id: uuidv4(),
                         key: uuidv4(),
                         video_title: '',
                         url: '',
@@ -516,7 +748,8 @@ export default function UserEntry({inputValue, setInputValue, chatMessages, setC
                         recipe_name: 'New Recipe',
                         recipe: ''
                     }
-                    setRecipes((prevRecipes) => [...prevRecipes, blankRecipe]);
+                    setRecipes((prevRecipes) => [blankRecipe, ...prevRecipes])
+                    
                 } else {
                 }
             }
@@ -535,10 +768,6 @@ export default function UserEntry({inputValue, setInputValue, chatMessages, setC
         const totalScrollableArea = el.scrollHeight - el.clientHeight;
         let bottomThreshold = totalScrollableArea * .09;
         if (el) {
-            console.log(el.scrollHeight)
-            console.log(el.clientHeight)
-            console.log(totalScrollableArea)
-            console.log(bottomThreshold)
             if (totalScrollableArea < 1000) {
                 return true
             }
@@ -551,36 +780,69 @@ export default function UserEntry({inputValue, setInputValue, chatMessages, setC
     
 
     // This function smoothly scrolls the div to the bottom
-    const scrollToBottom = (div: any) => div.scrollBy({
-        top: 100000,
-        behavior: 'smooth'
-    });
+    // const scrollToBottom = (div: any) => div.scrollBy({
+    //     top: 100000,
+    //     behavior: 'smooth'
+    // });
+
+    function collapseMenuStyle() {
+        return !menu ? (
+            <CustomStyledCollapse in={open}>
+                <CustomStyledAlert
+                    action={
+                        <CustomStyledIconButton
+                            className="errorIcon"
+                            aria-label="close"
+                            color="inherit"
+                            size="small"
+                            onClick={() => {
+                                setOpen(false);
+                            }}
+                            >
+                            <CloseIcon fontSize="inherit" />
+                        </CustomStyledIconButton>
+                    }
+                    icon={false}
+                    variant="filled" severity="error"
+                    // sx={{ mb: 2, display: 'flex', height: 'auto', flexDirection: 'column', justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}
+                    >
+                    <img className={menu ? "errorImageWithMenu" : "errorImage"} src={`${process.env.PUBLIC_URL}/images/error-alien-head.png`}  />
+                    <p className={menu ? "errorMessageWithMenu" : "errorMessage"}>{errorMessage}</p>
+                </CustomStyledAlert>
+            </CustomStyledCollapse>
+        ) : (
+            <CustomStyledCollapseWithMenu in={open}>
+                <CustomStyledAlertWithMenu
+                    action={
+                        <CustomStyledIconButtonWithMenu
+                            className="errorIcon"
+                            aria-label="close"
+                            color="inherit"
+                            size="small"
+                            onClick={() => {
+                                setOpen(false);
+                            }}
+                            >
+                            <CloseIcon fontSize="inherit" />
+                        </CustomStyledIconButtonWithMenu>
+                    }
+                    icon={false}
+                    variant="filled" severity="error"
+                    // sx={{ mb: 2, display: 'flex', height: 'auto', flexDirection: 'column', justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}
+                    >
+                    <img className={menu ? "errorImageWithMenu" : "errorImage"} src={`${process.env.PUBLIC_URL}/images/error-alien-head.png`}  />
+                    <p className={menu ? "errorMessageWithMenu" : "errorMessage"}>{errorMessage}</p>
+                </CustomStyledAlertWithMenu>
+            </CustomStyledCollapseWithMenu>
+        )
+    }
 
     return (
-        <form className='EntryForm' id="EntryForm" onSubmit={handleSubmit}>
-            <textarea className="UserInput" id="UserInput" placeholder={placeholder} autoFocus spellCheck="true" wrap="hard" onChange={(event) => handleInput(event)} onKeyDown={(event) => handleEnter(event)}></textarea>
-            {toggleSubmitButton()}
-            <Collapse in={open} sx={{position: 'absolute', left: 0, zIndex: 2, width: "101%", height: "100wh", margin: "-1px 0px 0px -7px", p: "0px 0px 0px 0px"}}>
-                <Alert
-                id='inputInvalidAlert'
-                action={
-                    <IconButton
-                    aria-label="close"
-                    color="inherit"
-                    size="small"
-                    onClick={() => {
-                        setOpen(false);
-                    }}
-                    >
-                    <CloseIcon fontSize="inherit" />
-                    </IconButton>
-                }
-                sx={{ mb: 2 }}
-                variant="filled" severity="error"
-                >
-                {errorMessage}
-                </Alert>
-            </Collapse>
-        </form>
+        <> {collapseMenuStyle()}
+            <form className='EntryForm' id="EntryForm" onSubmit={handleSubmit}>
+                <textarea className="UserInput" id="UserInput" placeholder={placeholder} autoFocus spellCheck="true" wrap="hard" onChange={(event) => handleInput(event)} onKeyDown={(event) => handleEnter(event)}></textarea>
+                {toggleSubmitButton()}
+            </form>
+        </>
     )
 }

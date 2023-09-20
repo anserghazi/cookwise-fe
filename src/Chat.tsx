@@ -17,6 +17,7 @@ interface IMessage {
 }
 
 interface IRecipe {
+    id: string,
     key: string,
     url: string,
     video_title: string,
@@ -26,13 +27,13 @@ interface IRecipe {
     recipe: string
 }
 
-export default function Chat({messages, setMessages, recipes, setRecipes, chatSessions, setChatSessions, currentSessionId, setCurrentSessionId}: {messages: Array<IMessage>, setMessages: React.Dispatch<React.SetStateAction<Array<IMessage>>>, recipes: Array<IRecipe>, setRecipes: React.Dispatch<React.SetStateAction<Array<IRecipe>>>, chatSessions: Array<string>, setChatSessions: React.Dispatch<React.SetStateAction<Array<string>>>, currentSessionId: string, setCurrentSessionId: React.Dispatch<React.SetStateAction<string>>}) {
+export default function Chat({menu, messages, setMessages, recipes, setRecipes, chatSessions, setChatSessions, currentSessionId, setCurrentSessionId}: {menu: any, messages: Array<IMessage>, setMessages: React.Dispatch<React.SetStateAction<Array<IMessage>>>, recipes: Array<IRecipe>, setRecipes: React.Dispatch<React.SetStateAction<Array<IRecipe>>>, chatSessions: Array<string>, setChatSessions: React.Dispatch<React.SetStateAction<Array<string>>>, currentSessionId: string, setCurrentSessionId: React.Dispatch<React.SetStateAction<string>>}) {
     const [inputValue, setInputValue] = useState("");
     const [socket, setSocket] = useState<WebSocket | null>(null);
 
     useEffect(() => {
         // Establish WebSocket connection when the component mounts
-        const newSocket = new WebSocket('wss://z1kj5uwf53.execute-api.us-east-2.amazonaws.com/production');
+        const newSocket = new WebSocket('wss://live.cookwise.app');
         setSocket(newSocket);
     
         // Clean up WebSocket connection when the component unmounts
@@ -68,7 +69,7 @@ export default function Chat({messages, setMessages, recipes, setRecipes, chatSe
                 {Messages()}
             </div>
             <div className='Fade'></div>
-            <UserEntry inputValue={inputValue} setInputValue={setInputValue} chatMessages={messages} setChatMessages={setMessages} recipes={recipes} setRecipes={setRecipes} chatSessions={chatSessions} setChatSessions={setChatSessions} currentSessionId={currentSessionId} setCurrentSessionId={setCurrentSessionId} socket={socket}></UserEntry>
+            <UserEntry menu={menu} inputValue={inputValue} setInputValue={setInputValue} chatMessages={messages} setChatMessages={setMessages} recipes={recipes} setRecipes={setRecipes} chatSessions={chatSessions} setChatSessions={setChatSessions} currentSessionId={currentSessionId} setCurrentSessionId={setCurrentSessionId} socket={socket}></UserEntry>
         </>
     )
 }
