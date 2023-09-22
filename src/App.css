@@ -176,7 +176,7 @@ input::placeholder {
 }
 
 @media only screen and (max-width: 649px) {
-  .App-header {
+  .body {
     min-height: -webkit-fill-available;
   }
 
