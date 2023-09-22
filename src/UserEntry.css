@@ -16,8 +16,10 @@
     margin: 0px 0px 3vh 0px; 
     overflow: hidden;
     position: absolute;
-    bottom: 0;
-
+    /* position: sticky; */
+    /* bottom: 0; */
+    /* position: fixed; */
+    bottom: env(safe-area-inset-bottom);
 }
 
 /* .EntryForm:focus-within {
