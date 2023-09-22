@@ -17,9 +17,9 @@
     overflow: hidden;
     position: absolute;
     /* position: sticky; */
-    /* bottom: 0; */
-    /* position: fixed; */
-    bottom: env(safe-area-inset-bottom);
+    bottom: 0;
+    /* position: fixed;
+    bottom: env(safe-area-inset-bottom); */
 }
 
 /* .EntryForm:focus-within {
