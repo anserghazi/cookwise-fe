@@ -103,7 +103,7 @@ dialog {
 
 .recipeList {
     /* height: 80vh; */
-    height: -webkit-fill-available;
+    /* height: -webkit-fill-available; */
     overflow-y: auto;
     border-style: solid;
 }
