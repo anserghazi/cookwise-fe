@@ -3,7 +3,8 @@
     position: absolute;
     left: 0;
     top: 0;
-    height: -webkit-fill-available;
+    height: 100%;
+    /* height: -webkit-fill-available; */
     min-width: 290px;
     align-items: center;
     text-align: left;
@@ -102,8 +103,12 @@ dialog {
 }
 
 .recipeList {
-    height: 80%;
+    min-height: 0px;
+    /* background-color: red; */
+    /* height: 60vh; */
     /* height: -webkit-fill-available; */
+    height: calc(98vh - 125px);
+    /* margin-bottom: 510vh; */
     overflow-y: auto;
     border-style: none;
 }
@@ -153,12 +158,12 @@ dialog {
     }
 
     .newChat {
-        width: 78%;
+        width: calc(100% - 85px);
         /* max-width: 200px; */
         height: 8%;
         max-height: 55px;
         min-height: 55px;
-        margin-left: 17%;
+        margin-left: 75px;
         margin-top: 15px;
         transition: 0.1s;
     }
@@ -166,7 +171,7 @@ dialog {
     .authenticationButton {
         padding: 10px 0px 10px 0px;
         margin: 10px 0px 25px 0px;
-        width: 90%;
+        width: calc(100% - 20px);
         height: 8%;
         max-height: 65px;
         min-height: 55px;
@@ -186,45 +191,46 @@ dialog {
     }
 
     .recipeList {
-        height: 80vh;
-        overflow-y: auto;
+        /* background-color: red; */
+        height: calc(95vh - 160px);
+        /* overflow-y: auto; */
         margin-left: 2%;
         margin-top: 2%;
     }
 }
 
 @media only screen and (max-width: 520px) {
-    .newChat {
-        width: 74%;
+    /* .newChat {
+        width: 74%; */
         /* max-width: 200px; */
-        height: 8%;
+        /* height: 8%;
         min-height: 55px;
         margin-left: 20.9%;
         margin-top: 15px;
-    }
+    } */
 
-    .authenticationButton {
+    /* .authenticationButton {
         padding: 10px 0px 10px 0px;
         margin: 10px 0px 25px 0px;
         width: 90%;
         height: 8%;
         transition: 0.6s;
-    }
+    } */
 }
 
 
 @media only screen and (max-width: 420px) {
-    .newChat {
+    /* .newChat {
         width: 70%;
         margin-left: 24.9%;
-    }
+    } */
 }
 
 @media only screen and (max-width: 360px) {
-    .newChat {
+    /* .newChat {
         width: 65%;
         margin-left: 29.9%;
-    }
+    } */
 }
   
 

@@ -334,12 +334,16 @@ p {
 
 @media only screen and (max-width: 649px) {
     .recipe {
-        width: 96%;
+        width: calc(98vw - 12px);
         height: 60px;
         font-size: 15px;
         padding-top: 14px;
         background-color: #171c21;
-        margin-bottom: 5px;
+        margin: 0px 0px 5px 0px;
+        padding-right: -10px;
+    }
+    .recipeList {
+        margin-left: 10.5px;
     }
 
     .fadeOverlay {

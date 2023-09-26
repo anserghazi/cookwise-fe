@@ -1,5 +1,7 @@
 html, body {
   background-color: #1B1F23;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .App {
@@ -192,4 +194,10 @@ input::placeholder {
     font-size: 5em; 
   }
 }
+
+/* @media only screen and (max-width: 500px) {
+  .fabIcon {
+    font-size: 5em; 
+  }
+} */
 
