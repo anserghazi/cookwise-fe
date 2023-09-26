@@ -105,7 +105,7 @@ dialog {
     /* height: 80vh; */
     /* height: -webkit-fill-available; */
     overflow-y: auto;
-    border-style: solid;
+    /* border-style: solid; */
 }
 
 .userLogin {
