@@ -164,7 +164,7 @@ dialog {
         max-height: 55px;
         min-height: 55px;
         margin-left: 75px;
-        margin-top: 15px;
+        margin-top: 10px;
         transition: 0.1s;
     }
 
@@ -195,7 +195,7 @@ dialog {
         height: calc(95vh - 160px);
         /* overflow-y: auto; */
         margin-left: 2%;
-        margin-top: 2%;
+        margin-top: 0%;
     }
 }
 
