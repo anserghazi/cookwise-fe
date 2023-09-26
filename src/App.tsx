@@ -108,7 +108,7 @@ function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 649)
   const [appHeaderStyle, setAppHeaderStyle] = useState(isMobile && menu ? { width: '0px'} : { width: 'calc(100% - 290px)'});
   const [fabSize, setFabSize]: any = useState(isMobile ? "large" : "small")
-  const [fabStyle, setFabStyle] = useState(isMobile ? {position: 'absolute', color: 'white', top: 15, left: 10, borderRadius: '20px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '11px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#060b0f', '&:hover': {backgroundColor: '#282c34'}}
+  const [fabStyle, setFabStyle] = useState(isMobile ? {position: 'absolute', color: 'white', top: 15, left: 10, borderRadius: '20px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '11px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#060b0f', '&:hover': {backgroundColor: '#060b0f'}}
                                                     : {position: 'absolute', color: 'white', top: 10, left: 10, borderRadius: '20px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '5px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#060b0f', '&:hover': {backgroundColor: '#282c34'}}
   );
 
@@ -184,7 +184,7 @@ function App() {
     if (isMobile) {
       if (menu) {
         setAppHeaderStyle({ width: '0px'})
-        setFabStyle({position: 'absolute', color: 'white', top: 15, left: 10, borderRadius: '20px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '11px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#111418', '&:hover': {backgroundColor: '#282c34'}})
+        setFabStyle({position: 'absolute', color: 'white', top: 15, left: 10, borderRadius: '20px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '11px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#111418', '&:hover': {backgroundColor: '#111418'}})
       }
       setFabSize("large")
     }
@@ -458,7 +458,7 @@ function App() {
       setMenu(false)
       setAppHeaderStyle({ width: '100%'});
       if (isMobile) {
-        setFabStyle({position: 'absolute', color: 'white', top: 15, left: 10, borderRadius: '20px', borderStyle: 'none', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '11px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#060b0f', '&:hover': {backgroundColor: '#4A515A'}});
+        setFabStyle({position: 'absolute', color: 'white', top: 15, left: 10, borderRadius: '20px', borderStyle: 'none', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '11px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#060b0f', '&:hover': {backgroundColor: '#060b0f'}});
       }
       else {
         setFabStyle({position: 'absolute', color: 'white', top: 10, left: 10, borderRadius: '20px', borderStyle: 'none', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '9px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#060b0f', '&:hover': {backgroundColor: '#4A515A'}});
@@ -475,7 +475,7 @@ function App() {
       }
       
       if (isMobile) {
-        setFabStyle({position: 'absolute', color: 'white', top: 15, left: 10, borderRadius: '10px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '11px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#111418', '&:hover': {backgroundColor: '#282c34'}});
+        setFabStyle({position: 'absolute', color: 'white', top: 15, left: 10, borderRadius: '10px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '11px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#111418', '&:hover': {backgroundColor: '#111418'}});
       }
       else {
         setFabStyle({position: 'absolute', color: 'white', top: 10, left: 237, borderRadius: '5px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '9px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#111418', '&:hover': {backgroundColor: '#282c34'}});
