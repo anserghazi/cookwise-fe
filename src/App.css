@@ -182,16 +182,13 @@ input::placeholder {
     overflow-y: hidden;
   } */
 
-  body {
-    overflow-y: hidden;
-  }
-
   .App {
     overflow-y: hidden;
   }
 
   .App-header {
-    height: -webkit-fill-available;
+    min-height: -webkit-fill-available;
+    max-height: 100vh;
   }
 
   .fabIcon {
