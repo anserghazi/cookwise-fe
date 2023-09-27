@@ -1,6 +1,6 @@
 html, body {
   background-color: #1B1F23;
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -181,6 +181,10 @@ input::placeholder {
   /* html, body {
     overflow-y: hidden;
   } */
+
+  body {
+    overflow-y: hidden;
+  }
 
   .App {
     overflow-y: hidden;

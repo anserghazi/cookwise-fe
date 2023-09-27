@@ -196,6 +196,7 @@ dialog {
         /* overflow-y: auto; */
         margin-left: 2%;
         margin-top: 0%;
+        overflow-x: hidden;
     }
 }
 
