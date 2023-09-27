@@ -187,7 +187,11 @@ input::placeholder {
   }
 
   .App-header {
-    min-height: calc(var(--vh, 1vh) * 100);
+    min-height: -webkit-fill-available;
+  }
+
+  html, body {
+    max-height: calc(var(--vh, 1vh) * 100);
   }
 
   .fabIcon {
