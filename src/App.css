@@ -188,10 +188,7 @@ input::placeholder {
 
   .App-header {
     min-height: -webkit-fill-available;
-  }
-
-  html, body {
-    max-height: calc(var(--vh, 1vh) * 100);
+    box-sizing: border-box;
   }
 
   .fabIcon {
