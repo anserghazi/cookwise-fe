@@ -188,6 +188,7 @@ input::placeholder {
 
   .App-header {
     min-height: -webkit-fill-available;
+    overflow-y: hidden;
   }
 
   .fabIcon {
