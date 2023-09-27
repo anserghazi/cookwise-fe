@@ -1,6 +1,6 @@
 html, body {
   background-color: #1B1F23;
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -178,9 +178,9 @@ input::placeholder {
 }
 
 @media only screen and (max-width: 649px) {
-  html, body {
-    overflow-y: hidden;
-  }
+  /* html, body {
+    overflow-y: auto;
+  } */
 
   .body {
     height: -webkit-fill-available;

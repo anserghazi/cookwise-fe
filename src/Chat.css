@@ -7,7 +7,7 @@
     flex-wrap: wrap;    
     /* border-color: red; */
     /* max-height: 92vh; */
-    max-height: 92vh;
+    height: 92vh;
     position: absolute;
     top: 0;
     overflow-y: auto;

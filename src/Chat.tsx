@@ -30,6 +30,7 @@ interface IRecipe {
 export default function Chat({menu, messages, setMessages, recipes, setRecipes, chatSessions, setChatSessions, currentSessionId, setCurrentSessionId}: {menu: any, messages: Array<IMessage>, setMessages: React.Dispatch<React.SetStateAction<Array<IMessage>>>, recipes: Array<IRecipe>, setRecipes: React.Dispatch<React.SetStateAction<Array<IRecipe>>>, chatSessions: Array<string>, setChatSessions: React.Dispatch<React.SetStateAction<Array<string>>>, currentSessionId: string, setCurrentSessionId: React.Dispatch<React.SetStateAction<string>>}) {
     const [inputValue, setInputValue] = useState("");
     const [socket, setSocket] = useState<WebSocket | null>(null);
+    const [sliderValue, setSliderValue] = useState("rapid");
 
     useEffect(() => {
         // Establish WebSocket connection when the component mounts
@@ -57,7 +58,7 @@ export default function Chat({menu, messages, setMessages, recipes, setRecipes, 
                 }} 
                 key={message.key}></Message>})
         if (Messages.length == 0) {
-            return <WelcomeMessage></WelcomeMessage>
+            return <WelcomeMessage setSliderValue={setSliderValue}></WelcomeMessage>
         }
         
         return Messages;
@@ -69,7 +70,7 @@ export default function Chat({menu, messages, setMessages, recipes, setRecipes, 
                 {Messages()}
             </div>
             <div className='Fade'></div>
-            <UserEntry menu={menu} inputValue={inputValue} setInputValue={setInputValue} chatMessages={messages} setChatMessages={setMessages} recipes={recipes} setRecipes={setRecipes} chatSessions={chatSessions} setChatSessions={setChatSessions} currentSessionId={currentSessionId} setCurrentSessionId={setCurrentSessionId} socket={socket}></UserEntry>
+            <UserEntry menu={menu} inputValue={inputValue} setInputValue={setInputValue} chatMessages={messages} setChatMessages={setMessages} recipes={recipes} setRecipes={setRecipes} chatSessions={chatSessions} setChatSessions={setChatSessions} currentSessionId={currentSessionId} setCurrentSessionId={setCurrentSessionId} socket={socket} sliderValue={sliderValue}></UserEntry>
         </>
     )
 }

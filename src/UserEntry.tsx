@@ -151,7 +151,7 @@ interface recipeMetadata {
     channelUrl: string
 }
 
-export default function UserEntry({menu, inputValue, setInputValue, chatMessages, setChatMessages, recipes, setRecipes, chatSessions, setChatSessions, currentSessionId, setCurrentSessionId, socket}: {menu: any, inputValue: string, setInputValue: React.Dispatch<React.SetStateAction<string>>, chatMessages: any, setChatMessages: any, recipes: Array<IRecipe>, setRecipes: React.Dispatch<React.SetStateAction<Array<IRecipe>>>, chatSessions: Array<string>, setChatSessions: React.Dispatch<React.SetStateAction<Array<string>>>, currentSessionId: string, setCurrentSessionId: React.Dispatch<React.SetStateAction<string>>, socket: WebSocket | null}) {
+export default function UserEntry({menu, inputValue, setInputValue, chatMessages, setChatMessages, recipes, setRecipes, chatSessions, setChatSessions, currentSessionId, setCurrentSessionId, socket, sliderValue}: {menu: any, inputValue: string, setInputValue: React.Dispatch<React.SetStateAction<string>>, chatMessages: any, setChatMessages: any, recipes: Array<IRecipe>, setRecipes: React.Dispatch<React.SetStateAction<Array<IRecipe>>>, chatSessions: Array<string>, setChatSessions: React.Dispatch<React.SetStateAction<Array<string>>>, currentSessionId: string, setCurrentSessionId: React.Dispatch<React.SetStateAction<string>>, socket: WebSocket | null, sliderValue: any}) {
     const delay = (ms: number | undefined) => new Promise(res => setTimeout(res, ms));
     const [isLoading, setIsLoading] = useState(false)
     const [open, setOpen] = useState(false)
@@ -670,8 +670,16 @@ export default function UserEntry({menu, inputValue, setInputValue, chatMessages
             let lastPromise: Promise<void> = Promise.resolve();
             let queueMessages = true
             if (socket) {
-                
-                const message = JSON.stringify({ action: "startTranscription", url: newMessage.request.text, messageHistory: chatMessages }); 
+                let message;
+
+                if (sliderValue == "accurate") {
+                    message = JSON.stringify({ action: "startWhisperTranscription", url: newMessage.request.text, messageHistory: chatMessages }); 
+                }
+                else  {
+                    message = JSON.stringify({ action: "startTranscription", url: newMessage.request.text, messageHistory: chatMessages }); 
+                }
+                let sentMessage = JSON.parse(message)
+                console.log(sentMessage.action)
                 socket.send(message);
 
                 socket.onmessage = (event) => {
