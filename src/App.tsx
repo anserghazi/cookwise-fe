@@ -158,6 +158,20 @@ function App() {
     return memoryStore.getItem(key)
   }
 
+  function setElementHeight() {
+    // Calculate the height of 1vh in pixels for the current viewport
+    const vh = window.innerHeight * 0.01;
+    
+    // Set the --vh custom property on the root element
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+  // Update the height whenever the window is resized or navigation bars are shown/hidden
+  window.addEventListener('resize', setElementHeight);
+
+  useEffect(() => {
+    setElementHeight();
+  })
+
   useEffect(() => {
     fetch('https://api.cookwise.app/validate-token', {
         method: 'GET',
