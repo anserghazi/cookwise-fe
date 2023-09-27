@@ -332,10 +332,43 @@ p {
     line-height: 1.4;
 }
 
+
+@media only screen and (max-width: 750px) {
+    .recipeHeaderDiv {
+        padding: 10px 0px 10px 15px;
+        border-bottom: solid;
+        border-width: 0.05px;
+        border-color: white;
+        display: flex;
+        flex-direction: row;
+        /* justify-content: space-between; */
+        height: 18.5%;
+        width: 100%;
+        background-color: #111418;
+        /* margin-left: -20px; */
+    }
+    
+    .recipeHeader {
+        /* background-color: red;    */
+        flex-direction: row;
+        font-family: 'Noto Serif Georgian';
+        font-weight: 300;
+        /* text-decoration: underline;
+        text-decoration-thickness: 0.5px; */
+        margin-top: 0px;
+        letter-spacing: -0.06rem;
+        display: flex;
+        line-height: 1.1;
+        /* background-color: #111418; */
+    }
+}
+
+
 @media only screen and (max-width: 649px) {
     .recipe {
-        width: calc(98vw - 12px);
+        width: calc(98vw - 8px);
         height: 60px;
+        min-height: 60px;
         font-size: 15px;
         padding-top: 14px;
         background-color: #171c21;

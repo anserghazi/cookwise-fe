@@ -52,7 +52,17 @@ const StyledDialog = styled(Dialog)(({ theme }) => ({
         maxWidth: '100vw',
         marginRight: '0px',
         paddingRight: '0px'
-      }
+      },
+    //   [theme.breakpoints.down(650)]: {
+    //     width: '100%',
+    //     position: 'absolute',
+    //     top: 0,
+    //     left: 0,
+    //     marginLeft: '0vw', // or any desired value for small screens
+    //     maxWidth: '100vw',
+    //     marginRight: '0px',
+    //     paddingRight: '0px'
+    //   }
     }
   }));
 
