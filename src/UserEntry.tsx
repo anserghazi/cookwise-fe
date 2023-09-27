@@ -776,7 +776,7 @@ export default function UserEntry({menu, inputValue, setInputValue, chatMessages
         const totalScrollableArea = el.scrollHeight - el.clientHeight;
         let bottomThreshold = totalScrollableArea * .09;
         if (el) {
-            if (totalScrollableArea < 1000) {
+            if (totalScrollableArea < 750) {
                 return true
             }
             return el.scrollHeight - el.scrollTop - el.clientHeight < bottomThreshold
