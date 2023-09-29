@@ -178,9 +178,9 @@ input::placeholder {
 }
 
 @media only screen and (max-width: 649px) {
-  /* html, body {
+  html, body {
     overflow-y: hidden;
-  } */
+  }
 
   .App {
     overflow-y: hidden;
