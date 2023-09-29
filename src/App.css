@@ -180,6 +180,7 @@ input::placeholder {
 @media only screen and (max-width: 649px) {
   html, body {
     overflow-y: hidden;
+    overscroll-behavior: contain;
   }
 
   .App {
