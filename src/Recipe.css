@@ -348,7 +348,8 @@ p {
         display: flex;
         flex-direction: row;
         /* justify-content: space-between; */
-        height: 18.5%;
+        /* height: 18.5%; */
+        height: fit-content;
         width: 100%;
         background-color: #111418;
         /* margin-left: -20px; */
