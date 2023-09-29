@@ -421,7 +421,7 @@ export default function UserEntry({menu, inputValue, setInputValue, chatMessages
         // uncomment these lines of code later on, we need to validate input instead of letting bad input & responses clutter the message history w/ chatgpt,
         // ORRR if the input is invalid, omit it and its response from the history submitted with a chatgpt message request
         let isValidInput = false;
-        if (userInput.value.startsWith("https://www.youtube.com/watch?v=") || userInput.value.startsWith("https://www.youtube.com/shorts/")) {
+        if (userInput.value.startsWith("https://www.youtube.com/watch?v=") || userInput.value.startsWith("https://www.youtube.com/shorts/") || userInput.value.startsWith("https://youtu.be/")) {
             isValidInput = true;
         }
 

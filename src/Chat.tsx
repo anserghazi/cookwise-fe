@@ -30,7 +30,7 @@ interface IRecipe {
 export default function Chat({menu, messages, setMessages, recipes, setRecipes, chatSessions, setChatSessions, currentSessionId, setCurrentSessionId}: {menu: any, messages: Array<IMessage>, setMessages: React.Dispatch<React.SetStateAction<Array<IMessage>>>, recipes: Array<IRecipe>, setRecipes: React.Dispatch<React.SetStateAction<Array<IRecipe>>>, chatSessions: Array<string>, setChatSessions: React.Dispatch<React.SetStateAction<Array<string>>>, currentSessionId: string, setCurrentSessionId: React.Dispatch<React.SetStateAction<string>>}) {
     const [inputValue, setInputValue] = useState("");
     const [socket, setSocket] = useState<WebSocket | null>(null);
-    const [sliderValue, setSliderValue] = useState("rapid");
+    const [sliderValue, setSliderValue] = useState("accurate");
 
     useEffect(() => {
         // Establish WebSocket connection when the component mounts
