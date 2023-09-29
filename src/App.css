@@ -184,6 +184,7 @@ input::placeholder {
 
   .App {
     overflow-y: hidden;
+    overscroll-behavior: contain;
   }
 
   .App-header {
