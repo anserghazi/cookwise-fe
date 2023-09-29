@@ -28,7 +28,7 @@ export default function WelcomeMessage({setSliderValue}: {setSliderValue: any}) 
                 <div className='row-examples'>
                     <div>"Can you make this recipe vegan?"</div>
                     <div>"I don't have a charcoal grill, can you alter the recipe so it uses an oven instead?"</div>
-                    <div>Transcription modes: <p style={{marginLeft: '.5%', color: '#267426', lineHeight: 1.1, fontWeight: 500}}>Rapid</p> | <p style={{color: '#2196F3', lineHeight: 1.1, fontWeight: 500, marginRight: '2px'}}>Accurate</p>(any language)</div>
+                    <div style={{fontSize: '13px', alignItems: 'center', justifyContent: 'center'}}>Transcription modes: <p style={{marginLeft: '.5%', color: '#267426', lineHeight: 1.2, fontWeight: 500}}>Rapid</p> | <p style={{color: '#2196F3', lineHeight: 1.2, fontWeight: 500, marginRight: '2px'}}>Accurate (any language)</p></div>
                 </div> 
                 <div className='row-examples' style={{marginTop: '4%'}}>
                     <label className="switch">
