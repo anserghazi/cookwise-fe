@@ -343,7 +343,7 @@ textarea::-webkit-scrollbar-thumb {
     } */
 
     .userInput {
-        line-height: 1.5;
+        line-height: 1.7;
     }
 
     .errorMessage {
