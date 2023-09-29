@@ -342,6 +342,10 @@ textarea::-webkit-scrollbar-thumb {
         line-height: 1.4;
     } */
 
+    .userInput {
+        line-height: 1.5;
+    }
+
     .errorMessage {
         font-size: 15px;
         margin-left: 16%;
