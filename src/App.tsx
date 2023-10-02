@@ -108,8 +108,8 @@ function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 649)
   const [appHeaderStyle, setAppHeaderStyle] = useState(isMobile && menu ? { width: '0px'} : { width: 'calc(100% - 290px)'});
   const [fabSize, setFabSize]: any = useState(isMobile ? "large" : "small")
-  const [fabStyle, setFabStyle] = useState(isMobile ? {position: 'absolute', color: 'white', top: 10, left: 10, borderRadius: '20px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '11px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#060b0f', '&:hover': {backgroundColor: '#060b0f'}}
-                                                    : {position: 'absolute', color: 'white', top: 10, left: 10, borderRadius: '20px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '5px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#060b0f', '&:hover': {backgroundColor: '#282c34'}}
+  const [fabStyle, setFabStyle] = useState(isMobile ? {position: 'absolute', color: 'white', top: 10, left: 10, borderRadius: '20px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '11px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#171c21', height: '55px', width: '55px', '&:hover': {backgroundColor: '#171c21'}}
+                                                    : {position: 'absolute', color: 'white', top: 10, left: 10, borderRadius: '20px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '8px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#060b0f', height: '40.5', width: '40.5',  '&:hover': {backgroundColor: '#282c34'}}
   );
 
   const delay = (ms: number | undefined) => new Promise(res => setTimeout(res, ms));
@@ -198,14 +198,14 @@ function App() {
     if (isMobile) {
       if (menu) {
         setAppHeaderStyle({ width: '0px'})
-        setFabStyle({position: 'absolute', color: 'white', top: 10, left: 10, borderRadius: '20px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '11px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#111418', '&:hover': {backgroundColor: '#111418'}})
+        setFabStyle({position: 'absolute', color: 'white', top: 10, left: 10, borderRadius: '5px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '11px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', height: '55px', width: '55px', backgroundColor: '#171c21', '&:hover': {backgroundColor: '#171c21'}})
       }
       setFabSize("large")
     }
     else {
       if (menu) {
         setAppHeaderStyle({ width: 'calc(100% - 290px)'})
-        setFabStyle({position: 'absolute', color: 'white', top: 10, left: 237, borderRadius: '20px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '9px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#111418', '&:hover': {backgroundColor: '#282c34'}})
+        setFabStyle({position: 'absolute', color: 'white', top: 10, left: 237, borderRadius: '5px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '8px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#171c21', height: '40.5px', width: '40.5px',  '&:hover': {backgroundColor: '#171c21'}})
       }
       setFabSize("small")
     }
@@ -454,6 +454,16 @@ function App() {
     }
   }
 
+  function displayFabIcon() {
+    let fabElement;
+    if (!isMobile) {
+      return (
+        <p className="fabIcon">©</p>
+      )
+    }
+    menu ? fabElement = <p className="fabIcon">©</p> : fabElement = <p className="fabIcon">›</p>;
+    return fabElement
+  }
 
   
   
@@ -472,10 +482,10 @@ function App() {
       setMenu(false)
       setAppHeaderStyle({ width: '100%'});
       if (isMobile) {
-        setFabStyle({position: 'absolute', color: 'white', top: 10, left: 10, borderRadius: '20px', borderStyle: 'none', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '11px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#060b0f', '&:hover': {backgroundColor: '#060b0f'}});
+        setFabStyle({position: 'absolute', color: 'white', top: 10, left: 2, borderRadius: '10px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '0px', paddingBottom: '12px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#272A31', height: '55px', width: '25px', '&:hover': {backgroundColor: '#2d3238'}});
       }
       else {
-        setFabStyle({position: 'absolute', color: 'white', top: 10, left: 10, borderRadius: '20px', borderStyle: 'none', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '9px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#060b0f', '&:hover': {backgroundColor: '#4A515A'}});
+        setFabStyle({position: 'absolute', color: 'white', top: 10, left: 10, borderRadius: '20px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '7px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#272A31', height: '40.5px', width: '40.5px', '&:hover': {backgroundColor: '#2d3238'}});
       }
       localStorage.setItem('menu', 'false');
     }
@@ -489,10 +499,10 @@ function App() {
       }
       
       if (isMobile) {
-        setFabStyle({position: 'absolute', color: 'white', top: 10, left: 10, borderRadius: '10px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '11px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#111418', '&:hover': {backgroundColor: '#111418'}});
+        setFabStyle({position: 'absolute', color: 'white', top: 10, left: 10, borderRadius: '10px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '11px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#111418', height: '55px', width: '55px', '&:hover': {backgroundColor: '#111418'}});
       }
       else {
-        setFabStyle({position: 'absolute', color: 'white', top: 10, left: 237, borderRadius: '5px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '9px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#111418', '&:hover': {backgroundColor: '#282c34'}});
+        setFabStyle({position: 'absolute', color: 'white', top: 10, left: 237, borderRadius: '5px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 68, 68)', paddingTop: '7px', paddingBottom: '0px', paddingLeft: '1px', boxShadow: 'none', overflow: 'hidden', backgroundColor: '#111418', height: '40.5px', width: '40.5px', '&:hover': {backgroundColor: '#2d3238'}});
       }
       localStorage.setItem('menu', 'true');
     }
@@ -510,7 +520,7 @@ function App() {
       {/* <h1>Hello {user?.username}</h1>
       <button onClick={signOut}>Sign out</button> */}
       <Fab id="fab" onClick={toggleMenu} disableRipple size={fabSize} sx={fabStyle}>
-          <p className="fabIcon">©</p>
+          {displayFabIcon()}
       </Fab>
       <Collapse in={menu}>
         <Sidebar menu={menu} messages={messages} setMessages={setMessages} recipes={recipes} setRecipes={setRecipes} chatSessions={chatSessions} setChatSessions={setChatSessions} currentSessionId={currentSessionId} setCurrentSessionId={setCurrentSessionId} user={user} setUser={setUser} clickedAuth={clickedAuth} setClickedAuth={setClickedAuth} isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} isGuest={isGuest} setIsGuest={setIsGuest} isMobile={isMobile} toggleMenu={toggleMenu} memoryStore={memoryStore} getMemoryStoreItem={getMemoryStoreItem} clearMemoryStore={clearMemoryStore} openDialog={openDialog} setOpenDialog={setOpenDialog}></Sidebar>

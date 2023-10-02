@@ -6,8 +6,8 @@
     box-sizing: border-box;
     flex-wrap: wrap;    
     /* border-color: red; */
-    /* max-height: 92vh; */
-    height: 92vh;
+    /* height: 92vh; */
+    max-height: 92vh;
     position: absolute;
     top: 0;
     overflow-y: auto;
@@ -45,4 +45,16 @@
     background: #8d929e; 
 }
 
+
+
+
+@media only screen and (max-width: 650px) {
+    .Fade {
+        bottom: 5vh;
+    }
+
+    .Chat {
+        max-height: calc(89vh - 76px);
+    }
+  }
 

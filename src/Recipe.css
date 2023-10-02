@@ -354,6 +354,15 @@ p {
         background-color: #111418;
         /* margin-left: -20px; */
     }
+
+    .recipeContentDiv {
+        height: fit-content;
+    }
+
+    .recipeTextContainer {
+        padding-top: 2px;
+        height: 70vh;
+    }
     
     .recipeHeader {
         /* background-color: red;    */
@@ -373,7 +382,7 @@ p {
 
 @media only screen and (max-width: 649px) {
     .recipe {
-        width: calc(98vw - 8px);
+        width: calc(98vw - 12px);
         height: 60px;
         min-height: 60px;
         font-size: 15px;
@@ -388,6 +397,19 @@ p {
 
     .fadeOverlay {
         background: linear-gradient(90deg, transparent 0%, #171c21 70%);
+    }
+
+    .closeDialog {
+        height: inherit;
+        overflow-y: hidden;
+        overflow-y: auto;
+        margin: 0px 0px 0px 0px;
+        padding: 25px 15px 15px 18px;
+        background-color: #1B1F23;
+        width: 100vw;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        border-radius: 5px;
     }
 }
 

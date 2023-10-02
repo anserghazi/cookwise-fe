@@ -56,7 +56,7 @@ const StyledDialog = styled(Dialog)(({ theme }) => ({
     }
   }));
 
-export default function Recipe({menu, id, key, videoUrl, videoTitle, channelUrl, channelName, recipeName, recipe, openDialog, setOpenDialog, handleDelete}: {menu: any, id: string, key: string, videoUrl: string, videoTitle: string, channelUrl: string, channelName: string, recipeName: string, recipe: string, openDialog: any, setOpenDialog: any, handleDelete: any}) {
+export default function Recipe({menu, id, key, videoUrl, videoTitle, channelUrl, channelName, recipeName, recipe, openDialog, setOpenDialog, handleDelete, isMobile}: {menu: any, id: string, key: string, videoUrl: string, videoTitle: string, channelUrl: string, channelName: string, recipeName: string, recipe: string, openDialog: any, setOpenDialog: any, handleDelete: any, isMobile: any}) {
     const [dialog, setDialog] = useState(false)
     const [clickedStyle, setClickedStyle] = useState('recipe')
     const [showConfirmation, setShowConfirmation] = useState(false)
@@ -186,11 +186,19 @@ export default function Recipe({menu, id, key, videoUrl, videoTitle, channelUrl,
         }
     }
 
+    function displayDeleteIcon() {
+        if (openDialog === id || isMobile) {
+            return (
+                <DeleteOutlineIcon onClick={showDelete} sx={{ color: 'grey', fontSize: '1.7em', position: 'absolute', top: -2, right: 3, marginRight: '3px', marginLeft: '10px', '&:hover': { color: 'white'}, '&:active': { transform: 'rotate(-10deg)', color: 'black' }}}></DeleteOutlineIcon>
+            )
+        }
+    }
+
     return (
         <>  
             <div className={checkStyle()} onClick={toggleModal}>
                 {/* <ReceiptLongIcon sx={{fontSize: '20px', fontWeight: '100', display: 'inline', marginLeft: '-5px'}}></ReceiptLongIcon> */}
-                    <p id={id} className='sidebarRecipe'>{displayRecipeName()}<div id={`fadeOverlay${id}`} className="fadeOverlay"></div>{openDialog === id && <DeleteOutlineIcon onClick={showDelete} sx={{ color: 'grey', fontSize: '1.7em', position: 'absolute', top: -2, right: 3, marginRight: '3px', marginLeft: '10px', '&:hover': { color: 'white'}, '&:active': { transform: 'rotate(-10deg)', color: 'black' }}}></DeleteOutlineIcon>}</p>
+                    <p id={id} className='sidebarRecipe'>{displayRecipeName()}<div id={`fadeOverlay${id}`} className="fadeOverlay"></div>{displayDeleteIcon()}</p>
                 
                 <StyledDialog onClose={handleClose} open={openDialog === id} fullScreen={isSmallScreen} transitionDuration={0} onClick={stopEventPropagation}>
                     <div style={{height: 'inherit', overflowY: 'hidden', margin: '0px 0px 0px 0px', padding: "0px 0px 0px 0px", backgroundColor: "#1B1F23", borderRadius: "5px", display: 'flex', flexFlow: 'column nowrap'}}>
@@ -218,7 +226,7 @@ export default function Recipe({menu, id, key, videoUrl, videoTitle, channelUrl,
                 </StyledDialog>
                 
             </div>
-            <Dialog onClick={stopEventPropagation} onClose={closeDelete} open={dialog} transitionDuration={0} fullScreen={isSmallScreen} style={{left: '290px'}} PaperProps={{sx:{backgroundColor: "#1B1F23", borderRadius: "10px"}}}>
+            <Dialog onClick={stopEventPropagation} onClose={closeDelete} open={dialog} transitionDuration={0} fullScreen={isSmallScreen} style={isMobile ? {height: '30vh', top: 200} : {left: '290px'}} PaperProps={{sx:{backgroundColor: "#1B1F23", borderRadius: "10px"}}}>
                 <div className="closeDialog">
                     <p style={{fontSize: '30px', width: '100%', fontWeight: '300'}}>Delete Recipe?</p>
                     <p>{recipeName}</p>

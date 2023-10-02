@@ -62,7 +62,7 @@ export default function Sidebar({menu, messages, setMessages, recipes, setRecipe
 
     function allRecipes() {
         let Recipes = recipes.map((recipe: { id: string, key: string, url: string, video_title: string, channel_name: string, channel_url: string, recipe_name: string, recipe: string}) => { 
-            return <Recipe menu={menu} id={recipe.id} key={recipe.key} videoUrl={recipe.url} videoTitle={recipe.video_title} channelUrl={recipe.channel_url} channelName={recipe.channel_name} recipeName={recipe.recipe_name} recipe={recipe.recipe} openDialog={openDialog} setOpenDialog={setOpenDialog} handleDelete={handleDelete}></Recipe>
+            return <Recipe menu={menu} id={recipe.id} key={recipe.key} videoUrl={recipe.url} videoTitle={recipe.video_title} channelUrl={recipe.channel_url} channelName={recipe.channel_name} recipeName={recipe.recipe_name} recipe={recipe.recipe} openDialog={openDialog} setOpenDialog={setOpenDialog} handleDelete={handleDelete} isMobile={isMobile}></Recipe>
         })
         if (recipes.length > 0) {
             return Recipes
@@ -198,7 +198,7 @@ export default function Sidebar({menu, messages, setMessages, recipes, setRecipe
                 <button onClick={navigateToAuthenticator} className='authenticationButton'>Log In / Sign Up</button> 
             </div>
             <p id='guest'>Sign in to save your recipes</p>
-            <a style={menu ? {fontSize: '6px', width: '25%', position: 'absolute', bottom: '0', right: '0', marginRight: '10px', color: '#757D87', display: 'inline', marginBottom: '5px'} : {display: 'none'}} href="https://www.flaticon.com/free-icons/alien-head" title="alien head icons">Alien head icons created by Freepik - Flaticon</a>
+            <a style={menu ? {fontSize: '6px', width: '25%', position: 'absolute', bottom: '0', right: '0', marginRight: '10px', color: '#757D87', display: 'inline', marginBottom: '5px'} : {display: 'none'}} href="https://www.flaticon.com/free-icons/alien-head" title="alien head icons">Icons from Freepik Flaticon</a>
         </div>
     )
 
